@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # Generates assets/header.svg : a self-contained SMIL-animated GitHub profile header.
-import math, random, os
+import math, random, os, base64
 
 random.seed(7)
+
+with open(os.path.join(os.path.dirname(__file__), "assets", "ShadowsIntoLight-Regular.ttf"), "rb") as _f:
+    FONT_B64 = base64.b64encode(_f.read()).decode("ascii")
 
 W, H = 720, 560
 CX = 360
@@ -19,6 +22,10 @@ out = []
 out.append(f'<svg viewBox="0 0 {W} {H}" width="{W}" height="{H}" xmlns="http://www.w3.org/2000/svg" '
            f'font-family="ui-monospace, SFMono-Regular, Consolas, monospace" role="img" '
            f'aria-label="PivPuser animated profile header">')
+
+# ---- embedded handwriting font (so it renders on GitHub) ----
+out.append("<defs><style>@font-face{font-family:'Shadows Into Light';font-style:normal;"
+           "font-weight:400;src:url(data:font/ttf;base64," + FONT_B64 + ") format('truetype');}</style></defs>")
 
 # ---- background ----
 out.append(f'<rect x="2" y="2" width="{W-4}" height="{H-4}" rx="20" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>')
@@ -155,9 +162,10 @@ out.append(f'<animate attributeName="opacity" values="{";".join(bvals)}" '
 out.append('</g>')
 out.extend(rest)
 
-# ---- tagline ----
-out.append(f'<text x="{CX}" y="448" text-anchor="middle" font-size="14" fill="#8b949e">'
-           f'{esc("// running on caffeine, curiosity & raw pointers")}</text>')
+# ---- tagline (handwritten signature) ----
+out.append(f'<text x="{CX}" y="452" text-anchor="middle" '
+           f'''font-family="'Shadows Into Light', cursive" font-size="23" fill="#c9d1d9">'''
+           f'{esc("i take software apart to see how it works")}</text>')
 
 out.append('</svg>')
 
