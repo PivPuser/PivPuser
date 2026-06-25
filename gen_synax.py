@@ -39,6 +39,23 @@ scythe = (
 )
 write("banner.svg", 760, 250, scythe, bg="#ffffff")
 
+# coffee cup (white, brown coffee, 3 animated steam wisps) for the About section
+CUP = ('<g transform="translate(648 44) scale(0.54)">'
+       '<path d="M198 148 C 236 150, 236 186, 188 188" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>'
+       '<path d="M38 120 C 44 178, 72 224, 120 224 C 168 224, 196 178, 202 120 Z" fill="#ffffff"/>'
+       '<ellipse cx="120" cy="120" rx="82" ry="18" fill="#ffffff"/>'
+       '<ellipse cx="120" cy="120" rx="72" ry="13" fill="#6F4E37"/>'
+       '<g opacity="0"><path d="M100 116 C 90 102, 110 94, 98 78 C 88 64, 106 56, 98 42" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>'
+       '<animateTransform attributeName="transform" type="translate" values="0 6; 0 -14" dur="4.5s" begin="0s" repeatCount="indefinite"/>'
+       '<animate attributeName="opacity" values="0; 0.9; 0" keyTimes="0; 0.45; 1" dur="4.5s" begin="0s" repeatCount="indefinite"/></g>'
+       '<g opacity="0"><path d="M120 116 C 110 102, 130 94, 118 78 C 108 64, 126 56, 118 42" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>'
+       '<animateTransform attributeName="transform" type="translate" values="0 6; 0 -15" dur="4.5s" begin="1.5s" repeatCount="indefinite"/>'
+       '<animate attributeName="opacity" values="0; 0.95; 0" keyTimes="0; 0.45; 1" dur="4.5s" begin="1.5s" repeatCount="indefinite"/></g>'
+       '<g opacity="0"><path d="M140 116 C 130 102, 150 94, 138 78 C 128 64, 146 56, 138 42" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>'
+       '<animateTransform attributeName="transform" type="translate" values="0 6; 0 -14" dur="4.5s" begin="3s" repeatCount="indefinite"/>'
+       '<animate attributeName="opacity" values="0; 0.9; 0" keyTimes="0; 0.45; 1" dur="4.5s" begin="3s" repeatCount="indefinite"/></g>'
+       '</g>')
+
 # ---- about ----
 bio = [
     "Hey, I'm PivPuser. A mid-level dev and reverse engineer who'd rather",
@@ -46,8 +63,8 @@ bio = [
     "other people's code apart to see how it works, until something gives.",
     "Runs on coffee and stubbornness.",
 ]
-about = heading(820, "Know About Me") + lines(70, 100, 30, bio, 21, "#b9c0c7")
-write("about.svg", 820, 210, about)
+about = heading(820, "Know About Me") + lines(70, 102, 30, bio, 21, "#b9c0c7") + CUP
+write("about.svg", 820, 215, about)
 
 # ---- projects (sits next to the cube gif) ----
 proj = [
