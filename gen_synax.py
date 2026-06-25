@@ -56,22 +56,10 @@ CUP_INNER = ('<path d="M198 148 C 236 150, 236 186, 188 188" fill="none" stroke=
        '<animate attributeName="opacity" values="0; 0.9; 0" keyTimes="0; 0.45; 1" dur="4.5s" begin="3s" repeatCount="indefinite"/></g>')
 
 def about_art():
-    cx, cy = 715, 113
+    cx = 715
     saucer = f'<ellipse cx="{cx}" cy="158" rx="40" ry="7" fill="#ffffff"/>'
     cup = '<g transform="translate(660 52) scale(0.46)">' + CUP_INNER + '</g>'
-    ring = ['<g><animateTransform attributeName="transform" type="rotate" '
-            f'from="0 {cx} {cy}" to="360 {cx} {cy}" dur="2.4s" repeatCount="indefinite"/>']
-    N, R = 14, 55
-    for i in range(N):
-        th = i * 2 * math.pi / N
-        x = cx + R * math.sin(th)
-        y = cy - R * math.cos(th)
-        ang = i * 360.0 / N
-        ring.append(f'<text x="{x:.1f}" y="{y:.1f}" transform="rotate({ang:.1f} {x:.1f} {y:.1f})" '
-                    f'text-anchor="middle" dominant-baseline="central" font-size="13" fill="#ffffff" '
-                    f'style="font-family:monospace">{random.choice("01")}</text>')
-    ring.append('</g>')
-    return saucer + cup + "".join(ring)
+    return saucer + cup
 
 # ---- about ----
 bio = [
