@@ -9,7 +9,7 @@ CENTER = SIZE / 2
 SCALE = 60
 D = 4.2          # camera distance
 F = 2.3          # focal
-FRAMES = 36
+FRAMES = 48
 LINE = (255, 255, 255, 255)
 
 font = ImageFont.load_default(size=13)
@@ -58,8 +58,8 @@ frames = []
 for fr in range(FRAMES):
     t = fr / FRAMES
     ax = 2 * math.pi * 1 * t
-    ay = 2 * math.pi * 2 * t
-    az = 2 * math.pi * 3 * t
+    ay = 2 * math.pi * 1 * t
+    az = 2 * math.pi * 2 * t
     rv = [rot(v, ax, ay, az) for v in verts]
     pv = [proj(v) for v in rv]
     im = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
@@ -72,6 +72,6 @@ for fr in range(FRAMES):
     frames.append(to_p(im))
 
 path = os.path.join(os.path.dirname(__file__), "assets", "cube.gif")
-frames[0].save(path, save_all=True, append_images=frames[1:], duration=70,
+frames[0].save(path, save_all=True, append_images=frames[1:], duration=115,
                loop=0, transparency=255, disposal=2, optimize=False)
 print("written:", path, os.path.getsize(path), "bytes,", FRAMES, "frames,", SIZE, "px")

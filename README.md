@@ -1,32 +1,39 @@
-<!-- PivPuser :: profile README -->
+<!-- PivPuser :: profile README (Synax-style, ink + handwriting). -->
 
 <div align="center">
-  <img src="./assets/header.svg" alt="PivPuser — Mid-level developer & reverse engineer" width="720" />
+  <img src="./assets/banner.svg" width="760" alt="PivPuser" />
 </div>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Ghidra-A41E22?style=for-the-badge&logoColor=white" alt="Ghidra" />
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="./assets/about.svg" width="820" alt="Know About Me" />
+</div>
+
+<table align="center"><tr>
+  <td valign="middle"><img src="./assets/cube.gif" width="120" alt="binary cube" /></td>
+  <td valign="middle"><img src="./assets/projects.svg" width="600" alt="Top Projects" /></td>
+</tr></table>
+
+<div align="center">
+  <img src="./assets/connect.svg" width="820" alt="Connect" />
+</div>
+
+<!-- Connect buttons: normal, clickable. Replace EMAIL/TELEGRAM links with your own. -->
+<div align="center">
+  <a href="https://github.com/PivPuser"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" /></a>
 </div>
 
 <br/>
 
 <div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=PivPuser&show_icons=true&hide_border=true&rank_icon=github&bg_color=0d1117&title_color=ffffff&text_color=8b949e&icon_color=ffffff" alt="PivPuser's GitHub stats" />
-  <img height="165" src="https://streak-stats.demolab.com?user=PivPuser&hide_border=true&background=0d1117&stroke=30363d&ring=ffffff&fire=ffffff&currStreakLabel=ffffff&sideLabels=8b949e&dates=8b949e&currStreakNum=ffffff&sideNums=ffffff" alt="PivPuser's streak" />
+  <img src="./assets/quotes.svg" width="820" alt="quotes" />
 </div>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PivPuser&layout=compact&hide_border=true&langs_count=8&bg_color=0d1117&title_color=ffffff&text_color=8b949e" alt="Most used languages" />
-</div>
-
-<br/>
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/PivPuser/PivPuser/output/snake.svg" alt="Contribution snake animation" />
+  <img src="./assets/contrib.svg" width="820" alt="Contribution" />
 </div>
 
 <div align="center">
-  <sub><code>// running on caffeine, curiosity & raw pointers ☕</code></sub>
+  <img width="820" src="https://github-readme-activity-graph.vercel.app/graph?username=PivPuser&bg_color=0d1117&color=ffffff&line=ffffff&point=ffffff&area=true&hide_border=true" alt="Contribution graph" />
 </div>
