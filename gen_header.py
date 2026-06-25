@@ -122,24 +122,36 @@ rstart = CX - len(role) * cwr / 2
 ry = 408
 appear_base = 0.4
 appear_step = 0.06
+TR = T  # loop period, synced with the name decode (10s)
 mid_group = []
 rest = []
 for j, ch in enumerate(role):
     x = rstart + cwr / 2 + j * cwr
-    beg = appear_base + j * appear_step
+    appear = appear_base + j * appear_step
+    kt = appear / TR
     t = (f'<text x="{x:.1f}" y="{ry}" text-anchor="middle" font-size="18" fill="#ffffff" opacity="0">'
          f'{esc(ch)}'
-         f'<animate attributeName="opacity" values="0;1" dur="0.08s" begin="{beg:.2f}s" fill="freeze"/>'
-         f'<animate attributeName="fill" values="#0d1117;#ffffff;#0d1117;#ffffff" dur="0.5s" '
-         f'begin="{beg:.2f}s" fill="freeze"/>'
+         f'<animate attributeName="opacity" values="0;1" keyTimes="0;{kt:.4f}" '
+         f'dur="{TR}s" calcMode="discrete" repeatCount="indefinite"/>'
          f'</text>')
     (mid_group if j < mid_len else rest).append(t)
 
-typed_done = appear_base + len(role) * appear_step + 0.3
-out.append(f'<g>')
+# [Mid-level] : 8 blinks after the line is typed, looped every cycle
+blink_start = appear_base + len(role) * appear_step + 0.3
+blink_dur = 0.4
+btimes = [0.0]
+bvals = ["1"]
+tb = blink_start
+for _ in range(8):
+    btimes.append(round(tb / TR, 4)); bvals.append("0")
+    btimes.append(round((tb + blink_dur / 2) / TR, 4)); bvals.append("1")
+    tb += blink_dur
+btimes.append(1.0); bvals.append("1")
+out.append('<g>')
 out.extend(mid_group)
-out.append(f'<animate attributeName="opacity" values="1;0;1" dur="0.4s" begin="{typed_done:.2f}s" '
-           f'repeatCount="8" fill="freeze"/>')
+out.append(f'<animate attributeName="opacity" values="{";".join(bvals)}" '
+           f'keyTimes="{";".join(str(x) for x in btimes)}" dur="{TR}s" '
+           f'calcMode="discrete" repeatCount="indefinite"/>')
 out.append('</g>')
 out.extend(rest)
 
