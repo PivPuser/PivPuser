@@ -1,7 +1,7 @@
 <!-- PivPuser :: profile README (Synax-style, ink + handwriting). -->
 
 <div align="center">
-  <img src="./assets/banner.svg" width="760" alt="PivPuser" />
+  <img src="./assets/banner.jpg" width="760" alt="" />
 </div>
 
 <div align="center">
